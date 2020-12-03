@@ -1,8 +1,8 @@
 
 const fs = require('fs');
-fs.readFile('input', (err, data) => work(data.toString().split("\r\n")));
+fs.readFile('input', (err, data) => solve(data.toString().split("\r\n")));
 
-function work(array) {
+function solve(array) {
     //repeat x10 to the right
     for(i=0; i<array.length; i++) {
         for(j=0; j<10; j++) {

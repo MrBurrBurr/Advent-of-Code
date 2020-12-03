@@ -1,7 +1,7 @@
 const fs = require('fs');
-fs.readFile('input', (err, data) => work(data.toString().split("\r\n").map(x=>+x)));
+fs.readFile('input', (err, data) => solve(data.toString().split("\r\n").map(x=>+x)));
 
-function work(array) {
+function solve(array) {
   for (let i=0; i < array.length; i++) {
     for (let j=i+1; j < array.length; j++) {
       for (let k=j+1; k < array.length; k++) {

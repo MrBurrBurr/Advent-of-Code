@@ -1,7 +1,7 @@
 const fs = require('fs');
-fs.readFile('input', (err, data) => work(data.toString().split("\r\n")));
+fs.readFile('input', (err, data) => solve(data.toString().split("\r\n")));
 
-function work(array) {
+function solve(array) {
   let validLines = 0;
 
   for (i=0; i<array.length; i++) {
