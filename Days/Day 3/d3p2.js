@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 fs.readFile('input', (err, data) => solve(data.toString().split("\r\n")));
 
