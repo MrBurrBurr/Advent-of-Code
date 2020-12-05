@@ -15,15 +15,10 @@ function resolveBsp(input, size, wayA, wayB) {
     return parseInt(result);
 }
 
-function getId(row, column) {
-    const result = parseInt(row) * 8 + parseInt(column);
-    return result;
-}
-
 const boardingPasses = lines.map(line => {
     const row = resolveBsp(line.substr(0, 7), 128, 'F', 'B');
     const column = resolveBsp(line.substr(7, 9), 8, 'L', 'R');
-    const id = getId(row, column);
+    const id = row * 8 + column;
     return { row, column, id };
 });
 
