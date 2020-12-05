@@ -1,11 +1,11 @@
 const fs = require('fs');
-const lines = fs.readFileSync('input', {encoding: 'utf-8'}).split('\r\n');
+const lines = fs.readFileSync('input', { encoding: 'utf-8' }).split('\r\n');
 
 function resolveBsp(input, size, wayA, wayB) {
     const chars = [...input];
     let result = [...Array(size).keys()]
 
-    for (let i = 0; i<chars.length; i++) {
+    for (let i = 0; i < chars.length; i++) {
         const len = result.length;
         const half = result.length / 2;
         if (chars[i] === wayA) result = result.splice(0, half);
@@ -38,8 +38,8 @@ for (let key in boardingPasses) {
 
 let missingWithNeighbors = new Set();
 missingIds.forEach(id => {
-    const hasPlusId = currentIds.findIndex(num => num === id+1);
-    const hasMinusId = currentIds.findIndex(num => num === id-1);
+    const hasPlusId = currentIds.findIndex(num => num === id + 1);
+    const hasMinusId = currentIds.findIndex(num => num === id - 1);
     if (hasPlusId !== -1 && hasMinusId !== -1) missingWithNeighbors.add(id);
 });
 
