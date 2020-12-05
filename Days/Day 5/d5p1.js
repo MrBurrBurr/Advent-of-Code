@@ -22,10 +22,7 @@ const boardingPasses = lines.map(line => {
     return { row, column, id };
 });
 
-let highestId = 0;
-for (let key in boardingPasses) {
-    const pass = boardingPasses[key];
-    if (pass.id > highestId) highestId = pass.id;
-}
+const ids = boardingPasses.map(bp => bp.id);
+const highestId = Math.max(...ids);
 
 console.log('the answer is: ' + highestId);
