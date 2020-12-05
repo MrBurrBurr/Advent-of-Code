@@ -1,3 +1,3 @@
 # Advent of Code 2020
 
-Here I will gather all my code snippets for the AoC20.
+Here you can find my solutions for the Advent of Code 2020 written in JavaScript.
