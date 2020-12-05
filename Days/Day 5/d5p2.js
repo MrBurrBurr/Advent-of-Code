@@ -15,27 +15,27 @@ function resolveBsp(input, size, wayA, wayB) {
     return parseInt(result);
 }
 
-const boardingPasses = lines.map(line => {
+const seats = lines.map(line => {
     const row = resolveBsp(line.substr(0, 7), 128, 'F', 'B');
     const column = resolveBsp(line.substr(7, 9), 8, 'L', 'R');
     const id = row * 8 + column;
     return { row, column, id };
 });
 
-const currentIds = boardingPasses.map(pass => pass.id);
+const currentIds = seats.map(pass => pass.id);
 
 const maxPossibleIds = 1031;
-let missingIds = new Set([...Array(maxPossibleIds).keys()]);
-for (let key in boardingPasses) {
-    const id = boardingPasses[key].id;
-    if (missingIds.has(id)) missingIds.delete(id);
+let allMissingIds = new Set([...Array(maxPossibleIds).keys()]);
+for (let key in seats) {
+    const id = seats[key].id;
+    if (allMissingIds.has(id)) allMissingIds.delete(id);
 }
 
 let missingIdsWithNeighbors = new Set();
-missingIds.forEach(id => {
-    const hasPlusId = currentIds.findIndex(num => num === id + 1);
-    const hasMinusId = currentIds.findIndex(num => num === id - 1);
-    if (hasPlusId !== -1 && hasMinusId !== -1) missingIdsWithNeighbors.add(id);
+allMissingIds.forEach(id => {
+    const hasPlusNeighbor = currentIds.findIndex(num => num === id + 1);
+    const hasMinusNeighbor = currentIds.findIndex(num => num === id - 1);
+    if (hasPlusNeighbor !== -1 && hasMinusNeighbor !== -1) missingIdsWithNeighbors.add(id);
 });
 
 const result = [...missingIdsWithNeighbors].join(' ');
