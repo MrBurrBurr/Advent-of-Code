@@ -31,13 +31,13 @@ for (let key in boardingPasses) {
     if (missingIds.has(id)) missingIds.delete(id);
 }
 
-let missingWithNeighbors = new Set();
+let missingIdsWithNeighbors = new Set();
 missingIds.forEach(id => {
     const hasPlusId = currentIds.findIndex(num => num === id + 1);
     const hasMinusId = currentIds.findIndex(num => num === id - 1);
-    if (hasPlusId !== -1 && hasMinusId !== -1) missingWithNeighbors.add(id);
+    if (hasPlusId !== -1 && hasMinusId !== -1) missingIdsWithNeighbors.add(id);
 });
 
-const result = [...missingWithNeighbors].join(' ');
+const result = [...missingIdsWithNeighbors].join(' ');
 
 console.log('the answer is:', result);
