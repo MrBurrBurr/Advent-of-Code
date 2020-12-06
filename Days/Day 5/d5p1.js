@@ -5,12 +5,12 @@ function resolveBsp(input, size, wayA, wayB) {
     const chars = [...input];
     let result = [...Array(size).keys()]
 
-    for (let i = 0; i < chars.length; i++) {
+    chars.forEach(char => {
         const len = result.length;
         const half = result.length / 2;
-        if (chars[i] === wayA) result = result.splice(0, half);
-        else if (chars[i] === wayB) result = result.splice(half, len);
-    }
+        if (char === wayA) result = result.splice(0, half);
+        else if (char === wayB) result = result.splice(half, len);
+    });
 
     return parseInt(result);
 }
