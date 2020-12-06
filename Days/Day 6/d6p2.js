@@ -10,7 +10,7 @@ lines.forEach(line => {
     const wholeGroup = groups.join('');
 
     [...wholeGroup].forEach(char => {
-        const charCount = wholeGroup.split(char).length-1;
+        const charCount = wholeGroup.split(char).length - 1;
         if (charCount === groups.length) yesCount.add(char);
     });
 

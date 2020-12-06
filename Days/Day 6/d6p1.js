@@ -1,7 +1,7 @@
 const fs = require('fs');
 const lines = fs.readFileSync('input', { encoding: 'utf-8' }).split('\n\r');
 
-let totalSum = 0;
+let result = 0;
 
 lines.forEach(line => {
     line = line.replace(/\n/g, '').trim();
@@ -13,8 +13,8 @@ lines.forEach(line => {
             if (!yesCount.has(char)) yesCount.add(char);
         });
     });
-    
-    totalSum += yesCount.size;
+
+    result += yesCount.size;
 });
 
-console.log('the answer is: ' + totalSum);
+console.log('the answer is: ' + result);
