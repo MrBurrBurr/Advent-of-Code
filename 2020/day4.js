@@ -1,9 +1,32 @@
 const fs = require('fs');
-const lines = fs.readFileSync('input', { encoding: 'utf-8' }).split('\r\n\r\n');
+const lines = fs.readFileSync('input/day4', { encoding: 'utf-8' }).split('\r\n\r\n');
 
 const validFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
 const validEyeColors = new Set(['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']);
 let validPassports = 0;
+
+lines.forEach(line => {
+    line = line.replace(/\r\n/g, ' ');
+    const fields = line.split(' ');
+    const fieldsToVerify = [];
+
+    fields.forEach(field => fieldsToVerify.push(field.substring(0, field.indexOf(':'))));
+
+    let allGood = true;
+
+    validFields.forEach(validField => {
+        if (!fieldsToVerify.includes(validField)) {
+            allGood = false;
+            return;
+        }
+    });
+
+    if (allGood) validPassports++;
+});
+
+console.log('part 1 - the answer is:', validPassports);
+
+validPassports = 0;
 
 lines.forEach(line => {
     line = line.replace(/\r\n/g, ' ');
@@ -66,4 +89,4 @@ lines.forEach(line => {
     if (hasAllFields && allFieldsValid) validPassports++;
 });
 
-console.log('the answer is:', validPassports);
+console.log('part 2 - the answer is:', validPassports);

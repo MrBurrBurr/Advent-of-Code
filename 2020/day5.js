@@ -1,5 +1,5 @@
 const fs = require('fs');
-const lines = fs.readFileSync('input', { encoding: 'utf-8' }).split('\r\n');
+const lines = fs.readFileSync('input/day5', { encoding: 'utf-8' }).split('\r\n');
 
 function resolveBsp(input, size, wayA, wayB) {
     const chars = [...input];
@@ -22,6 +22,11 @@ const seats = lines.map(line => {
     return { row, column, id };
 });
 
+const ids = seats.map(bp => bp.id);
+const highestId = Math.max(...ids);
+
+console.log('part 1 - the answer is: ' + highestId);
+
 const currentIds = seats.map(pass => pass.id);
 
 const maxPossibleIds = 1031;
@@ -40,4 +45,4 @@ allMissingIds.forEach(id => {
 
 const result = [...missingIdsWithNeighbors].join(' ');
 
-console.log('the answer is:', result);
+console.log('part 2 - the answer is:', result);

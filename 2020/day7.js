@@ -1,5 +1,5 @@
 const fs = require('fs');
-const lines = fs.readFileSync('input', { encoding: 'utf-8' }).split('\r\n');
+const lines = fs.readFileSync('input/day7', { encoding: 'utf-8' }).split('\r\n');
 
 let result = 0;
 const bags = [];
@@ -45,4 +45,4 @@ bags.forEach(bag => {
     if (bagIsValid) result++;
 });
 
-console.log('the answer is: ' + result);
+console.log('part 1 - the answer is: ' + result);
